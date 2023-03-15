@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Sign In</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-top">
+        <span>Don't have an account?</span>
+        <a href="./signup.html">Sign Up</a>
+        <h1>WELCOME</h1>
+      </div>
+      <div class="container-bottom">
+        <div class="input-container">
+          <input
+            type="email"
+            id="emailLogin"
+            class="email"
+            placeholder="email"
+          />
+          <img src="./assets/account.svg" alt="account" />
+        </div>
+        <div class="input-container">
+          <input
+            type="text"
+            id="passwordLogin"
+            class="password"
+            placeholder="password"
+          />
+          <img src="./assets/lock.svg" alt="lock" />
+        </div>
+        <button type="submit" class="sign-in" id="buttonSignIn">Sign In</button>
+        <p class="notification" id="notification">
+          Please enter your email and password
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

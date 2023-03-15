@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap");
+
+/* GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(./assets/landscape.png);
+  background-size: cover;
+  font-family: "Quicksand";
+  /* padding: 10rem; */
+}
+
+/* CONTAINER */
+.container {
+  width: 530px;
+  min-width: 375px;
+  min-height: 770px;
+  background-color: white;
+  border-radius: 20px;
+
+  display: grid;
+  grid-template-rows: 400px 330px;
+
+  box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.container a {
+  background-color: white;
+  color: #23163b;
+}
+
+/* CONTAINER TOP */
+.container-top {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1.5rem;
+
+  border-radius: 20px;
+  background-image: url(./assets/landscape.png);
+  background-size: cover;
+  background-position: center;
+}
+span {
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+}
+h1 {
+  color: white;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  letter-spacing: 5px;
+}
+a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #23163b;
+  text-decoration: none;
+  width: 105px;
+  height: 30px;
+  border-radius: 20px;
+  border: 2px solid white;
+  margin-top: 0.5rem;
+}
+a:hover {
+  background: none;
+  color: white;
+  font-weight: 700;
+}
+
+/* CONTAINER BOTTOM */
+.container-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 3rem;
+  gap: 1.5rem;
+}
+
+.input-container {
+  position: relative;
+}
+.input-container img {
+  height: 20px;
+  position: absolute;
+  left: 5px;
+  top: 5px;
+}
+
+/* INPUT */
+input {
+  width: 245px;
+  height: 30px;
+  border-radius: 20px;
+  text-align: center;
+  background: linear-gradient(#713559, #944564);
+  border: none;
+  position: relative;
+  color: white;
+  font-weight: 700;
+}
+::placeholder {
+  color: white;
+  font-weight: 500;
+}
+
+/* BUTTON */
+button {
+  width: 105px;
+  height: 30px;
+  border-radius: 20px;
+  border: none;
+  background: linear-gradient(#713559, #944564);
+  color: white;
+}
+button:hover {
+  font-weight: 700;
+  cursor: pointer;
+  background: none;
+  color: #944564;
+  border: 2px solid;
+  border-color: #944564;
+}
+
+/* NOTIFICATION */
+p.notification {
+  text-align: center;
+  color: #944564;
+}
+
+/* USER DATA INPUT CONTAINER */
+.user-data-input-container {
+  min-width: 375px;
+  background: white;
+  width: 100%;
+}
+
+.user-data-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  gap: 1rem;
+
+  background-image: url(./assets/landscape.png);
+  background-size: cover;
+  background-position: center;
+
+  width: 100%;
+  min-height: 400px;
+  overflow: hidden;
+}
+
+/* INPUT FORM */
+.form-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.user-data-input input {
+  border: 1px solid white;
+  min-width: 60px;
+  width: 100%;
+  color: white;
+  background: none;
+  font-weight: 00;
+  padding: 0.5rem;
+  text-align: start;
+}
+.user-data-input input::placeholder {
+  color: white;
+  font-weight: 700;
+}
+
+.add-data {
+  font-weight: 700;
+}
+
+.user-data-input input,
+button.add-data {
+  border-radius: 5px;
+}
+
+.user-data-input button.add-data {
+  background: white;
+  color: #944564;
+  min-width: 50px;
+}
+
+.user-data-input button.add-data:hover {
+  background: none;
+  color: rgba(255, 255, 255, 1);
+  border: 2px solid white;
+}
+@media only screen and (max-width: 768px) {
+  .form-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-container input {
+    text-align: center;
+  }
+  .user-data-input-container {
+    height: 100vh;
+    width: 100vw;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
+  .user-data-input {
+    background-size: 200%;
+    background-position: fixed;
+  }
+}
+/* TABLE */
+
+table {
+  background-size: fit;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead tr {
+  height: 60px;
+}
+
+thead tr th {
+  color: #944564;
+}
+
+table,
+th,
+td {
+  color: #944564;
+  padding: 1rem 0.5rem;
+  text-align: center;
+}
+td {
+  border-top: 1px solid #944564;
+}
+
+td button {
+  width: 70px;
+  border-radius: 5px;
+  margin: 0.3rem;
+  font-weight: 700;
+}
+
+td button:hover {
+  color: rgba(255, 255, 255, 0.3);
+  background: linear-gradient(#713559, #944564);
+  border: none;
+}
