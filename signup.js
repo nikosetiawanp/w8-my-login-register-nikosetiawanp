@@ -63,7 +63,7 @@ document.getElementById("buttonSignUp").addEventListener(
     if (validateEmail() === true && validatePassword() === true) {
       localStorage.setItem("email", email);
       localStorage.setItem("password", password);
-      window.location.href = "./data.html";
+      window.location.href = "./index.html";
       alert("Sign Up Succesful! You will be redirected soon");
     } else {
       return;
