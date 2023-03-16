@@ -86,11 +86,14 @@ a:hover {
   justify-content: flex-start;
   align-items: center;
   padding: 3rem;
-  gap: 1.5rem;
+  gap: 0.5rem;
 }
 
 .input-container {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .input-container img {
   height: 20px;
@@ -135,9 +138,13 @@ button:hover {
 }
 
 /* NOTIFICATION */
-p.notification {
+.password-error,
+.email-error {
   text-align: center;
-  color: #944564;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: red;
+  margin-top: -0.3rem;
 }
 
 /* USER DATA INPUT CONTAINER */
@@ -219,7 +226,6 @@ button.add-data {
   body {
     margin: 0;
     padding: 0;
-    background: white;
   }
   .user-data-input {
     background-size: 200%;
