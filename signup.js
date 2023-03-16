@@ -6,9 +6,10 @@ document.addEventListener("keyup", function (event) {
   }
 });
 
+// SIGN UP
 document.getElementById("buttonSignUp").addEventListener(
   "click",
-  (validate = () => {
+  (signup = () => {
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
     // CHECK EMAIL
@@ -54,7 +55,7 @@ document.getElementById("buttonSignUp").addEventListener(
       }
     };
 
-    // RUN VALIDATION ON CLICK
+    // RUN VALIDATION
     validateEmail();
     validatePassword();
 

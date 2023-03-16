@@ -166,8 +166,13 @@ button:hover {
   background-position: center;
 
   width: 100%;
-  min-height: 400px;
+  min-height: 625px;
   overflow: hidden;
+}
+
+.user-data-input span {
+  font-size: 3rem;
+  margin-bottom: 2rem;
 }
 
 /* INPUT FORM */
@@ -226,10 +231,11 @@ button.add-data {
   body {
     margin: 0;
     padding: 0;
+    background-image: none;
   }
   .user-data-input {
-    background-size: 200%;
-    background-position: fixed;
+    background-size: cover;
+    min-height: 625px;
   }
 }
 /* TABLE */
