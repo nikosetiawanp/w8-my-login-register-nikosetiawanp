@@ -6,13 +6,6 @@ document.addEventListener("keyup", function (event) {
   }
 });
 
-// DATA DUMMY
-let data = [
-  { name: "John", age: 25, email: "john@example.com" },
-  { name: "Jane", age: 30, email: "jane@example.com" },
-  { name: "Bob", age: 35, email: "bob@example.com" },
-];
-
 // VALIDATE NAME
 document.getElementById("name").addEventListener(
   "input",
@@ -88,18 +81,31 @@ showData = () => {
   }
 };
 
+// IMPORT DATA FROM LOCAL STORAGE
+let data = JSON.parse(localStorage.getItem("users")) || [];
+
+// DATA DUMMY
+// let data = [
+//   { name: "John", age: 25, email: "john@example.com" },
+//   { name: "Jane", age: 30, email: "jane@example.com" },
+//   { name: "Bob", age: 35, email: "bob@example.com" },
+// ];
+
 // ADD DATA TO OBJECT DATA
 addData = () => {
   let nameInput = document.getElementById("name").value;
   let ageInput = document.getElementById("age").value;
   let email = document.getElementById("email").value;
-  data.push({ name: nameInput, age: ageInput, email: email });
+  data.push(userCollection);
+  localStorage.setItem("Data Admin", JSON.stringify(userCollection));
+  userCollection.push({ name: nameInput, age: ageInput, email: email });
   showData();
 };
 
 // DELETE OBJECT FROM OBJECT DATA
 deleteData = (index) => {
   data.splice(index, 1);
+  localStorage.setItem("users", JSON.stringify("users"));
   showData();
 };
 

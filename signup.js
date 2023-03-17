@@ -105,9 +105,6 @@ document.getElementById("buttonSignUp").addEventListener(
       email: email,
       password: password,
     };
-    // let userSigned = users.find(
-    //   (user) => user.email === email && user.password === password
-    // );
 
     if (validateEmailSignUp() !== false && validatePasswordSignUp() !== false) {
       userCollection.push(user);
