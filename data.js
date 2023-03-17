@@ -58,6 +58,52 @@ document.getElementById("email").addEventListener(
     }
   })
 );
+
+// IMPORT DATA FROM LOCAL STORAGE
+let data = JSON.parse(localStorage.getItem("users")) || [];
+
+// DATA DUMMY
+// let data = [
+//   { name: "John", age: 25, email: "john@example.com" },
+//   { name: "Jane", age: 30, email: "jane@example.com" },
+//   { name: "Bob", age: 35, email: "bob@example.com" },
+// ];
+
+// ADD DATA TO OBJECT DATA
+addData = () => {
+  let nameInput = document.getElementById("name").value;
+  let ageInput = document.getElementById("age").value;
+  let email = document.getElementById("email").value;
+  data.push(userCollection);
+  localStorage.setItem("users", JSON.stringify(userCollection));
+  userCollection.push({ name: nameInput, age: ageInput, email: email });
+  showData();
+};
+
+// DELETE OBJECT FROM OBJECT DATA
+deleteData = (index) => {
+  let data = JSON.parse(localStorage.getItem(userCollection));
+  data.splice(index, 1);
+  localStorage.setItem("users", JSON.stringify(userCollection));
+  showData();
+};
+
+// CLICK ADD TO ADD DATA
+document.getElementById("buttonAddData").addEventListener(
+  "click",
+  (addData = () => {
+    let nameInput = document.getElementById("name").value;
+    let ageInput = document.getElementById("age").value;
+    let email = document.getElementById("email").value;
+    if (
+      checkIfString() !== false &&
+      checkIfNumber() !== false &&
+      validateEmail() !== false
+    )
+      data.push({ name: nameInput, age: ageInput, email: email });
+    showData();
+  })
+);
 // ADD DATA TO TABLE
 showData = () => {
   let tableBody = document.querySelector("#dataTable tbody");
@@ -80,53 +126,7 @@ showData = () => {
     tableBody.innerHTML += row;
   }
 };
-
-// IMPORT DATA FROM LOCAL STORAGE
-let data = JSON.parse(localStorage.getItem("users")) || [];
-
-// DATA DUMMY
-// let data = [
-//   { name: "John", age: 25, email: "john@example.com" },
-//   { name: "Jane", age: 30, email: "jane@example.com" },
-//   { name: "Bob", age: 35, email: "bob@example.com" },
-// ];
-
-// ADD DATA TO OBJECT DATA
-addData = () => {
-  let nameInput = document.getElementById("name").value;
-  let ageInput = document.getElementById("age").value;
-  let email = document.getElementById("email").value;
-  data.push(userCollection);
-  localStorage.setItem("Data Admin", JSON.stringify(userCollection));
-  userCollection.push({ name: nameInput, age: ageInput, email: email });
-  showData();
-};
-
-// DELETE OBJECT FROM OBJECT DATA
-deleteData = (index) => {
-  data.splice(index, 1);
-  localStorage.setItem("users", JSON.stringify("users"));
-  showData();
-};
-
-// CLICK ADD TO ADD DATA
-document.getElementById("buttonAddData").addEventListener(
-  "click",
-  (addData = () => {
-    let nameInput = document.getElementById("name").value;
-    let ageInput = document.getElementById("age").value;
-    let email = document.getElementById("email").value;
-    if (
-      checkIfString() !== false &&
-      checkIfNumber() !== false &&
-      validateEmail() !== false
-    )
-      data.push({ name: nameInput, age: ageInput, email: email });
-    showData();
-  })
-);
 // EDIT DATA IN THE OBJECT DATA
-
 editData = (index) => {
   let nameInput = prompt("New Name", data[index].name);
   let ageInput = prompt("New Age", data[index].age);
@@ -134,6 +134,7 @@ editData = (index) => {
   data[index] = { name: nameInput, age: ageInput, email: email };
   showData();
 };
+
 // SHOW DATA WHEN PAGE LOADED
 window.onload = function () {
   showData();

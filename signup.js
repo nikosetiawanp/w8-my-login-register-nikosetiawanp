@@ -101,16 +101,22 @@ document.getElementById("buttonSignUp").addEventListener(
   (saveToLocalStorage = () => {
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
+    let dataLogin = JSON.parse(localStorage.getItem("users"));
     let user = {
       email: email,
       password: password,
     };
+    let check = dataLogin.find((a) => a.email === email);
 
-    if (validateEmailSignUp() !== false && validatePasswordSignUp() !== false) {
+    if (
+      validateEmailSignUp() !== false &&
+      validatePasswordSignUp() !== false &&
+      check === undefined
+    ) {
       userCollection.push(user);
       localStorage.setItem("users", JSON.stringify(userCollection));
       window.location.href = "./index.html";
-    } else if (userSigned) {
+    } else {
       alert("Email already registered");
     }
   })
