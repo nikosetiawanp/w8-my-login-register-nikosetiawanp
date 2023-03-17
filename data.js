@@ -94,24 +94,17 @@ showData = () => {
 };
 
 // ADD DATA TO OBJECT DATA
-
-// EDIT DATA IN THE OBJECT DATA
-editData = () => {
+addData = () => {
   let nameInput = document.getElementById("name").value;
   let ageInput = document.getElementById("age").value;
   let email = document.getElementById("email").value;
-  data[index] = { name: nameInput, age: ageInput, email: email };
+  data.push({ name: nameInput, age: ageInput, email: email });
   showData();
 };
 
 // DELETE OBJECT FROM OBJECT DATA
 deleteData = (index) => {
   data.splice(index, 1);
-  showData();
-};
-
-// SHOW DATA WHEN PAGE LOADED
-window.onload = function () {
   showData();
 };
 
@@ -131,3 +124,16 @@ document.getElementById("buttonAddData").addEventListener(
     showData();
   })
 );
+// EDIT DATA IN THE OBJECT DATA
+
+editData = (index) => {
+  let nameInput = prompt("New Name", data[index].name);
+  let ageInput = prompt("New Age", data[index].age);
+  let email = prompt("New Email", data[index].email);
+  data[index] = { name: nameInput, age: ageInput, email: email };
+  showData();
+};
+// SHOW DATA WHEN PAGE LOADED
+window.onload = function () {
+  showData();
+};
