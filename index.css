@@ -137,6 +137,16 @@ button:hover {
   border-color: #944564;
 }
 
+button:disabled {
+  opacity: 50%;
+}
+button:disabled:hover {
+  background: linear-gradient(#713559, #944564);
+  color: white;
+  font-weight: 500;
+  cursor: auto;
+}
+
 /* NOTIFICATION */
 .password-error,
 .email-error {
@@ -148,6 +158,10 @@ button:hover {
 }
 
 /* USER DATA INPUT CONTAINER */
+.login-error {
+  margin-top: 1rem;
+}
+
 .user-data-input-container {
   min-width: 375px;
   background: white;

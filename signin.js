@@ -1,45 +1,32 @@
-const getData = localStorage.getItem("data");
-const data = JSON.parse(getData) || [
-  { id: 1, email: "admin@gmail.com", password: "Admin123" },
-];
-
-// PRESS ENTER TO SIGN UP
+// PRESS ENTER TO SIGN IN
 document.addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
     event.preventDefault();
-    document.getElementById("buttonSignUp").click();
+    document.getElementById("buttonSignIn").click();
   }
 });
 
-// SIGN IN
 document.getElementById("buttonSignIn").addEventListener(
   "click",
-  (signin = () => {
+
+  (loginValidate = () => {
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
 
-    validateEmail = () => {
-      const emailRegex =
-        /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    let users = JSON.parse(localStorage.getItem("users")) || [];
 
-      if (!email) {
-        document.getElementById("emailError").innerHTML =
-          "You should not leave the email empty";
-      } else if (!emailRegex.test(email)) {
-        alert("Correct");
-      }
-    };
-
-    validatePassword = () => {
-      if (!password) {
-        document.getElementById("passwordError").innerHTML =
-          "You should not leave the password empty";
-      } else {
-        alert("OK");
-      }
-    };
-
-    validateEmail();
-    validatePassword();
+    let user = users.find(
+      (user) => user.email === email && user.password === password
+    );
+    if (user) {
+      window.location.href = "./data.html";
+    } else if (!email || !password) {
+      document.getElementById("loginError").innerHTML =
+        "&#10060; Email / password is empty!";
+    } else {
+      document.getElementById("loginError").innerHTML =
+        "&#10060; Email / password does not exist";
+      document.getElementById("loginError").style.color = "red";
+    }
   })
 );
