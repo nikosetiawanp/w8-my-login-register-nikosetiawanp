@@ -1,8 +1,3 @@
-const getData = localStorage.getItem("data");
-const data = JSON.parse(getData) || [
-  { id: 1, email: "admin@gmail.com", password: "Admin123" },
-];
-
 // CHECK EMAIL
 document.getElementById("email").addEventListener(
   "input",
@@ -110,15 +105,16 @@ document.getElementById("buttonSignUp").addEventListener(
       email: email,
       password: password,
     };
-    let check = data.find((a) => a.email === name.value);
+    // let userSigned = users.find(
+    //   (user) => user.email === email && user.password === password
+    // );
 
     if (validateEmailSignUp() !== false && validatePasswordSignUp() !== false) {
       userCollection.push(user);
       localStorage.setItem("users", JSON.stringify(userCollection));
       window.location.href = "./index.html";
-    } else if (!check) {
+    } else if (userSigned) {
       alert("Email already registered");
-      return;
     }
   })
 );
