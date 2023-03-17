@@ -14,6 +14,9 @@ document.getElementById("buttonSignIn").addEventListener(
     let password = document.getElementById("password").value;
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
+    let userCollection = JSON.parse(localStorage.getItem("users")) || [
+      { email: "admin@gmail.com", password: "Admin123" },
+    ];
 
     let user = users.find(
       (user) => user.email === email && user.password === password
